@@ -1,14 +1,27 @@
+# Button Examples
+# by @steveruizok
+
+# See full project description at https://github.com/steveruizok/framer-button
+
+
 {Button} = require 'Button'
 Screen.backgroundColor = '#FFF'
+Framer.Device.type = "fullscreen"
 
-container = new Layer
+container = new ScrollComponent
 	backgroundColor: null
-	x: 32, y: 32
+	x: 0, y: 0
+	width: Screen.width
+	height: Screen.height
+	scrollHorizontal: false
+
+container = container.content
 
 # Button Types
 
 basicButtons = new Layer
 	parent: container
+	x: Align.center, y: 32
 	backgroundColor: null
 
 basicButtonsLabel = new TextLayer
@@ -38,13 +51,15 @@ basic3 = new Button
 basicButtons.props = 
 	height: basic3.maxY
 	width: basic3.maxX
+	x: Align.center
 
 # Styling Options
 
 stylingOptions = new Layer
 	backgroundColor: null
 	parent: container
-	y: 120
+	x: Align.center
+	y: basicButtons.maxY + 32
 
 stylingOptionsLabel = new TextLayer
 	parent: stylingOptions
@@ -142,6 +157,7 @@ disabled3 = new Button
 stylingOptions.props = 
 	height: disabled3.maxY
 	width: disabled3.maxX
+	x: Align.center
 
 # Icon Variant
 
@@ -258,6 +274,7 @@ disabled3 = new Button
 iconVariants.props = 
 	height: disabled3.maxY
 	width: disabled3.maxX
+	x: Align.center
 
 # Actions
 
@@ -309,6 +326,7 @@ changeMe = new TextLayer
 actionButtons.props = 
 	height: changeMe.maxY
 	width: basic3.maxX
+	x: Align.center
 
 # Button Group
 
@@ -349,154 +367,4 @@ toggle3 = new Button
 buttonGroup.props = 
 	width: basicButtons.width
 	height: changeMe.maxY
-	
-# 
-# # FURNITURE
-# 
-# headline = new TextLayer
-# 	x: Align.center, y: Screen.height * .18
-# 	color: '#333', fontWeight: 500
-# 	text: 'Button'
-# 
-# detail = new TextLayer
-# 	x: Align.center, y: headline.maxY + 8
-# 	fontSize: 14, color: '#333', fontWeight: 500
-# 	text: 'by @steveruizok'
-# 	
-# changeMe = new TextLayer
-# 	x: Align.center, y: Align.center(150)
-# 	color: '#333', fontWeight: 500
-# 	fontSize: 18, text: 'Tap a button to start.'
-# 	
-# changeMe.on "change:text", -> changeMe.textAlign = 'center'
-# 
-# # BASIC
-# 
-# basic = new Button
-# 	x: Align.center(-180), y: Align.center(-100)
-# # 	type: 'basic'
-# 	text: 'Basic'
-# 	action: -> changeMe.text = 'Basic button tapped.'
-# 
-# # TOGGLE
-# 
-# toggle = new Button
-# 	x: basic.maxX + 8, y: basic.y
-# 	type: 'toggle'
-# 	text: 'Toggle'
-# 	toggleOn: -> changeMe.text = "Toggle button toggled: #{@isOn}."
-# 	toggleOff: -> changeMe.text = "Toggle button toggled: #{@isOn}."
-# 
-# # LABEL
-# 
-# label = new Button
-# 	name: 'label button'
-# 	x: toggle.maxX + 8, y: basic.y
-# 	width: 120
-# 	type: 'label'
-# 	text: 'Label'
-# 	action: ->
-# 		@i++
-# 		@value = @i
-# 		changeMe.text = "Label value: #{@i}."
-# 
-# # ICON
-# 
-# icon = new Button
-# 	x: label.maxX + 8, y: basic.y
-# 	width: 32
-# 	icon: 'add'
-# 	action: -> changeMe.text = 'Icon button tapped.'
-# 
-# # DISABLED
-# 
-# disabled = new Button
-# 	x: icon.maxX + 8, y: basic.y
-# 	type: 'basic'
-# 	text: 'Disabled'
-# 	disabled: true
-# 	action: -> changeMe.text = 'Disabled button tapped.'
-# 
-# float = new Button
-# 	x: basic.x, y: basic.maxY + 16
-# 	type: 'basic'
-# 	text: 'Float'
-# 	float: true
-# 	action: -> changeMe.text = 'Float button tapped.'
-# 
-# togglefloat = new Button
-# 	x: float.maxX + 8, y: basic.maxY + 16
-# 	width: 120
-# 	type: 'toggle'
-# 	text: 'Toggle Float'
-# 	float: true
-# 	toggleOn: -> changeMe.text = "Float toggled: #{@isOn}."
-# 	toggleOff: -> changeMe.text = "Float toggled: #{@isOn}."
-# 
-# labelfloat = new Button
-# 	x: togglefloat.maxX + 8, y: basic.maxY + 16
-# 	width: 160
-# 	type: 'label'
-# 	text: 'Label Float'
-# 	float: true
-# 	action: ->
-# 		@i++
-# 		@value = @i
-# 		changeMe.text = "Label float value: #{@i}."
-# 
-# iconfloat = new Button
-# 	x: labelfloat.maxX + 8, y: labelfloat.y
-# 	width: 32
-# 	float: true
-# 	icon: 'add'
-# 	action: -> changeMe.text = 'Float icon button tapped.'
-# 
-# link = new Button
-# 	x: basic.x, y: float.maxY + 16
-# 	text: 'Link'
-# 	link: true
-# 	touchState:
-# 		color: 'rgba(1, 179, 231, 1)'
-# 	action: -> changeMe.text = 'Link button tapped.'
-# 
-# toggleLink = new Button
-# 	x: link.maxX + 8, y: float.maxY + 16
-# 	text: 'Toggle Link'
-# 	type: 'toggle'
-# 	link: true
-# 	touchState:
-# 		color: 'rgba(1, 179, 231, 1)'
-# 	onState:
-# 		color: 'rgba(3, 123, 179, 1)'
-# 	toggleOn: -> changeMe.text = "Link toggled: #{@isOn}."
-# 	toggleOff: -> changeMe.text = "Link toggled: #{@isOn}."
-# 
-# labelLink = new Button
-# 	x: toggleLink.maxX + 8, y: float.maxY + 16
-# 	text: 'Label Link'
-# 	type: 'label'
-# 	width: 150
-# 	labelWidth: .3
-# 	link: true
-# 	touchState:
-# 		color: 'rgba(1, 179, 231, 1)'
-# 	onState:
-# 		color: 'rgba(3, 123, 179, 1)'
-# 	action: ->
-# 		@i++
-# 		@value = @i
-# 		changeMe.text = "Link float value: #{@i}."
-# 
-# disabledLink = new Button
-# 	x: labelLink.maxX + 16, y: float.maxY + 16
-# 	width: 90 
-# 	text: 'Disabled Link'
-# 	type: 'toggle'
-# 	link: true
-# 	disabled: true
-# 	touchState:
-# 		color: 'rgba(1, 179, 231, 1)'
-# 	onState:
-# 		color: 'rgba(3, 123, 179, 1)'
-# 	action: -> changeMe.text = "Disabled link tapped."
-# 	
+	x: Align.center

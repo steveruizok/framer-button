@@ -2,6 +2,10 @@
 
 The Button module allows you to quickly include working button instances in your Framer project.
 
+See examples at [https://framer.cloud/yyUMF](https://framer.cloud/yyUMF).
+
+![alt text](/example.png "Framer Button")
+
 ## Introduction
 
 The Button class provides several options that you can use in combination to create your different button styles. All aspects of a Button may be defined together in the Button's options. These include the Button's initial appearance, the states it will use to display different stages of an interaction, and the action to take when the Button is tapped.
