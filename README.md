@@ -377,7 +377,7 @@ nextButton = new NextButton
 The following properties may be set when creating a Button.
 
 property | typeof | default
---- | --- | ---
+:--- | :--- | :---
 type | string | `'basic'`
 text | string | `'button'`
 textStyle | object | `{fontSize: 13, padding:{top:6}}`
