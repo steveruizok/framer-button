@@ -1,17 +1,12 @@
-# BUTTON
-# @steveruizok
+# Button
 
-###
+The Button module allows you to quickly include working button instances in your Framer project.
 
-#Button
-
-The Button module allows you to quickly include working button instances in your project.
-
-##Introduction
+## Introduction
 
 The Button class provides several options that you can use in combination to create your different button styles. All aspects of a Button may be defined together in the Button's options. These include the Button's initial appearance, the states it will use to display different stages of an interaction, and the action to take when the Button is tapped.
 
-##Usage
+## Usage
 
 Drag the Button.coffee file into your project's modules folder. 
 
@@ -27,9 +22,9 @@ Create your first Button using the code:
 myButton = new Button
 ```
 
-##Styling Buttons
+## Styling Buttons
 
-###Type
+### Type
 
 Each button has a property named `type`. There are three main types: `basic`, `toggle`, and `label`. By default, a button's type is `'basic'`. To change the type of a button, set the type property when creating your button.
 
@@ -355,7 +350,7 @@ class NextButton extends Button
 
 pager = new PageComponent
 	x: Align.center
-	
+
 
 # create some pages
 
@@ -382,6 +377,7 @@ nextButton = new NextButton
 The following properties may be set when creating a Button.
 
 property | typeof | default
+--- | --- | ---
 type | string | `'basic'`
 text | string | `'button'`
 textStyle | object | `{fontSize: 13, padding:{top:6}}`
@@ -391,15 +387,15 @@ link | boolean | `false`
 hover | boolean | `true`
 float | boolean | `false`
 disabled | boolean | `false`
-hoverState | object |
+hoverState | object | 
 touchState | object |
-tint | string | `'rgba(0, 179, 231, 1)'`
 onState | object |
 defaultState | object |
+tint | string | `'rgba(0, 179, 231, 1)'`
 disabledState | object | `{opacity: .5}`
 icon | string | `''`
 iconSize | object | `{height: undefined, width: undefined}`
-labelWidth | number | .34
+labelWidth | number | `.34`
 labelBackgroundColor | string | `slightly darker or lighter than Button`
 labelColor | string | `'#000' or Button.color`
 value | number | `0`
